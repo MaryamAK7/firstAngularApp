@@ -1,0 +1,35 @@
+<label>Server Name</label>
+<!-- <input type="text" (input)="onUpdateServerName($event)"/> -->
+<input type="text" [(ngModel)]="serverName" />
+<p *ngIf="serverCreated; else noServer">
+  server was created, server name is {{ serverName }}
+</p>
+<ng-template #noServer>
+  <p>No server was created</p>
+</ng-template>
+<button [disabled]="!allowNewServer" (click)="onCreateServer()">
+  Add New Server
+</button>
+<p [innerText]="allowNewServer"></p>
+<p>{{ serverCreationStatus }}</p>
+<app-server></app-server>
+<app-server></app-server>
+
+<input type="text" [(ngModel)]="userName" />
+<p>{{ userName }}</p>
+<button [disabled]="userName === ''" (click)="onResetUserName()">
+  Reset userName
+</button>
+
+<hr/>
+<!-- 32.assignment -->
+<button (click)="onDisplay()">Display Details</button>
+<p [ngClass]="{displayed : display === false}">
+  Adipisicing sint do labore pariatur et laborum mollit cillum exercitation.
+  Nisi in excepteur Lorem labore est anim tempor irure. Labore officia irure
+  aute occaecat nostrud est officia sunt officia. Exercitation do minim officia
+  ipsum cupidatat veniam exercitation sunt eiusmod sit cillum incididunt nulla
+  esse. Ea quis nisi cillum labore. Non officia deserunt incididunt sit enim
+  mollit irure ad proident in id cupidatat id.
+</p>
+    <div *ngFor ="let c of displayLog" [ngStyle]="{backgroundColor : c>= 5 ? 'blue' : 'transparent'}" [ngClass]="{white : (c)>=5}">{{c}}</div>
